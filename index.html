@@ -11,20 +11,45 @@
     <div class="container">
         <div class="item">
             <input type="checkbox">
-            <p>Check a box.</p>
+            <label>Check a box.</label>
         </div>
         <div class="item">
             <input type="checkbox">
-            <p>Hold down shift.</p>
+            <label>Hold down shift.</label>
         </div>
         <div class="item">
             <input type="checkbox">
-            <p>Check another item.</p>
+            <label>Check another item.</label>
         </div>
         <div class="item">
             <input type="checkbox">
-            <p>Items in between should be checked.</p>
+            <label>Items in between should be checked.</label>
         </div>
     </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type=checkbox]');
+        let start;
+
+        checkboxes.forEach(box => box.addEventListener('click', function(e) {
+            console.log(e);
+            let boxesBetween = false;
+            if(e.shiftKey && this.checked) {
+                checkboxes.forEach(box => {
+                    console.log(box);
+                    if(box === this || box === start) {
+                        boxesBetween = !boxesBetween;
+                        console.log('starting to check in between', boxesBetween);
+                    }
+
+                    if(boxesBetween) {
+                        box.checked = true;
+                    }
+                })
+            }
+            start = this;
+        }));
+
+    </script>
 </body>
 </html>
