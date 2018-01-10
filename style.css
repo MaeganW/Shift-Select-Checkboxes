@@ -10,16 +10,23 @@ body {
 
 .container {
     box-shadow: 0 2rem 6rem rgba(0,0,0,0.3);;
-    font-family: 'Monserrat', 'Helvetica Neue';
+    font-family: 'Montserrat', 'Helvetica Neue';
     letter-spacing: .2rem;
     color: #ccc;
     background-color: #2C2E34;
     width: 350px;
+    padding: 20px;
 }
 
 .item {
     display: flex;
     align-items: center;
+    padding-top: 10px;
+    font-weight: 100;
+}
+
+.item:first-child {
+    padding-top: 0;
 }
 
 input {
